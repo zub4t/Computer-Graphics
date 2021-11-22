@@ -48,7 +48,8 @@ function init() {
   document.addEventListener('mousemove', onDocumentMouseMove)
 
   let i = 0
-  d3Obj(() => {
+  for(let j = 1; j <= 6; j++){
+    d3Obj(() => {
     const texture = new THREE.Texture(generateTexture())
     texture.needsUpdate = true
     let material = new THREE.MeshPhongMaterial({
@@ -61,7 +62,6 @@ function init() {
     i += 1
     let points = []
     for (let face of my_face) {
-   
       points.push(
         my_vertex[face.p1 - 1].x,
         my_vertex[face.p1 - 1].y,
@@ -98,13 +98,18 @@ function init() {
    
     }
     
-    const vertices = new Float32Array(points)
-    const geometry = new THREE.BufferGeometry()
+    var vertices = new Float32Array(points)
+    var geometry = new THREE.BufferGeometry()
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3))
-    const mesh = new THREE.Mesh(geometry, material)
+    var mesh = new THREE.Mesh(geometry, material)
+    mesh.position.add(new THREE.Vector3(30*j,0,0));
     scene.add(mesh)
-  })
+    my_vertex = []
+    my_face = []
+  }, 'http://localhost:3000/obj/' + j + '.obj')
 }
+  }
+  
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2

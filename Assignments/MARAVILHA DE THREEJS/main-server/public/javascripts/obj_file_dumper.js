@@ -3,8 +3,12 @@ var my_vertex_normal = []
 var my_face = []
 var my_vertex_texture = []
 
-let d3Obj = (exec) => {
-  fetch('http://localhost:3000/obj/spiderman.obj')
+let d3Obj = (exec, url) => {
+  my_vertex = []
+  my_vertex_normal = []
+  my_vertex_texture = []
+  my_face = []
+  fetch(url)
     .then(function (response) {
       return response.text()
     })
