@@ -26,5 +26,12 @@ router.get('/camera', function (req, res) {
     console.log(e);
   }
 });
+router.get('/dynamic_camera', function (req, res) {
+  try {
+    res.render('dynamic_camera');
+  } catch (e) {
+    console.log(e);
+  }
+});
 var _default = router;
 exports["default"] = _default;
