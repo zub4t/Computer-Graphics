@@ -1,7 +1,7 @@
 // routes/index.js and users.js
 import express from 'express';
 var router = express.Router();
-router.get('/objRender', function(req, res) {
+router.get('/obj_render', function(req, res) {
     try {
         res.render('obj_file')
 

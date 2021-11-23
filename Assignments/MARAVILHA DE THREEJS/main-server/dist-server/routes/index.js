@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 // routes/index.js and users.js
 var router = _express["default"].Router();
 
-router.get('/objRender', function (req, res) {
+router.get('/obj_render', function (req, res) {
   try {
     res.render('obj_file');
   } catch (e) {

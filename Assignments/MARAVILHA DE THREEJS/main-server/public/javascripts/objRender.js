@@ -22,8 +22,7 @@ function init() {
     1,
     2000,
   )
-  camera.position.z = 10
-  camera.position.y = -50
+  
   // scene
 
   scene = new THREE.Scene()
@@ -42,6 +41,11 @@ function init() {
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableZoom = true
   controls.enableDamping = true
+
+  camera.position.x = 48.33123001925478
+  camera.position.z = -379.0417112203077
+  camera.position.y = -102.10514293758031
+
 
   container.appendChild(renderer.domElement)
 
@@ -129,6 +133,7 @@ function onDocumentMouseMove(event) {
 //
 
 function animate() {
+  console.log(camera.position)
   requestAnimationFrame(animate)
   controls.update()
   render()
@@ -141,6 +146,7 @@ function render() {
 
   camera.lookAt(scene.position)
 */
+  
   renderer.render(scene, camera)
 }
 function generateTexture() {
